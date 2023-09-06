@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "9a834b81-893a-49ef-accd-947eaaaa1fa3",
+		"name": "Backed_Exercicio05",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3207039"
+	},
+	"item": [
+		{
+			"name": "graphql",
+			"item": [
+				{
+					"name": "Listar Enquetes Simplificado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "x-apollo-operation-name",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    enquetes {\n        id,\n        name,\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Enquetes Completo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "x-apollo-operation-name",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    enquetes {\n        id,\n        name,\n        items {\n            id,\n            name,\n            votes\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criacao de uma nova Enquete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "x-apollo-operation-name",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    addEnquete(\n        name: \"Enquete Previsão do Tempo\",\n        items: [\n            {\n                name: \"Sol\",\n                votes: 0\n            },\n            {\n                name: \"Chuva\",\n                votes: 0\n            }\n        ]\n    ) {\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Votar em uma enquete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    addVote(\n        id: 1,\n        idItem: \"fed956fd-fc7d-44a1-8909-90024499dbad\"\n    ) {\n        message\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tirar voto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    removeVote(\n        id: 1,\n        idItem: \"fed956fd-fc7d-44a1-8909-90024499dbad\"\n    ) {\n        message\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rest",
+			"item": [
+				{
+					"name": "Listar todas as Enquetes Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/enquetes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"enquetes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criacao de uma nova Enquete Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Enquete Tecnlogia\",\n    \"items\": [\n        {\n            \"name\": \"Backend\",\n            \"votes\": 0\n        },\n        {\n            \"name\": \"Frontend\",\n            \"votes\": 0\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/enquetes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"enquetes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Votar em uma enquete Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/enquetes/1/items/fed956fd-fc7d-44a1-8909-90024499dbad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"enquetes",
+								"1",
+								"items",
+								"fed956fd-fc7d-44a1-8909-90024499dbad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tirar voto de uma enquete Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/enquetes/1/items/fed956fd-fc7d-44a1-8909-90024499dbad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"enquetes",
+								"1",
+								"items",
+								"fed956fd-fc7d-44a1-8909-90024499dbad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
