@@ -10,6 +10,8 @@ functions:
     handler: index.handler
     events:
       - httpApi: '*'
+      - websocket:
+          route: $connect
 
 plugins:
   - serverless-offline 

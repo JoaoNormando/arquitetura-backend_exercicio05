@@ -1,11 +1,17 @@
 const serverless = require("serverless-http");
 const express = require("express");
 const app = express();
+const http = require('http')
+const server = http.createServer(app)
+const { Server } = require('socket.io')
+const io = new Server(server)
+
 const enquetesController = require('./controller/enquetes.js')
 
 app.use(express.json())
 
 app.get("/", (req, res, next) => {
+  io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' })
   return res.status(200).json({
     message: "Hello from root!",
   });
@@ -24,5 +30,9 @@ app.use((req, res, next) => {
     error: "Not Found",
   });
 });
+
+io.on('connection', (socket) => {
+  console.log('User connected to system')
+})
 
 module.exports.handler = serverless(app);
