@@ -7,10 +7,6 @@ const io = new Server(server);
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
 app.post('/mensagem', (req, res) => {
   const { mensagem, enquete } = req.body
   io.emit(mensagem,  enquete)
