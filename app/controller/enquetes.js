@@ -14,6 +14,7 @@ const enquetes = [{
 }]
 
 router.get('/', (req, res) => {
+    console.log('Recuperando todas as enquetes...')
     return res.status(200).send(enquetes);
 });
 

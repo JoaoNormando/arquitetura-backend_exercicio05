@@ -1,0 +1,11 @@
+{
+  "name": "socket-server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "graphql": "^16.8.0",
+    "node-fetch": "^3.3.2"
+  }
+}
