@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
+  "graphdoc": {
+    "endpoint": "http://localhost:5000/graphql",
+    "output": "./doc/schema"
+  },
   "dependencies": {
     "@apollo/server": "^4.9.3",
     "graphql": "^16.8.0",
