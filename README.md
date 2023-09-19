@@ -114,6 +114,14 @@ Após isso, o projeto deverá estar disponível na porta 5000, com uma saída si
 
 ## Documentação
 
+### app
+
+Com a aplicação rodando, acesse a rota `/api/docs` para acessar ao Swagger da aplicação
+
+### socket-server
+
+Com a aplicação rodando, acesse a rota `/api/docs` para acessar ao Swagger da aplicação
+
 ### graphql-server
 
 A documentação da aplicação foi criada utilizando [graphdoc](https://github.com/2fd/graphdoc/) e se encontra [aqui](./graphql-server/doc/schema/)
